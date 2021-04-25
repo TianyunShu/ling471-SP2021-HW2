@@ -70,7 +70,9 @@ def countTokens(text):
     # as you step through the execution in the debugger.
 
     # TODO: Write a statement below calling split() on your text and storing the
-    # result in a new variable.
+    # result in a new variable
+    x = text.split()
+    print(x)
 
     # Now, we need to iterate over each word in the list of tokens
     # (write a for loop over the list that split() returned).
@@ -83,10 +85,16 @@ def countTokens(text):
 
     # TODO: Write a for loop here, doing what is described above.
 
+    for w in x:
+        if not w in token_counts:
+            token_counts[w] = 0
+        token_counts[w] += 1
+    print(token_counts)
     # Do not forget to return the result!
     return token_counts
 
 
+    
 '''
 This silly "prediction funtion" will do the following "rudimentary data science":
 If a review contains more of the word "good" than of the word "bad", 
@@ -111,15 +119,20 @@ def predictSimplistic(counts):
     # This line retrieves the count for "good". If the word "good" is not found in "counts", it returns 0.
     pos_count = counts.get(POS, 0)
     # TODO: Write a similar statement below to retrieve the count of "bad".
-    # neg_count =
-
+    neg_count = counts.get(NEG, 0)
     # TODO: Write an if-elif-else block here, following the logic described in the function description.
+    if pos_count > neg_count:
+        return POS_REVIEW
+    elif pos_count < neg_count:
+        return NEG_REVIEW
+    else:
+        return NONE
     # Do not forget to return the prediction! You will be returning one of the constants declared above.
     # You may choose to store a prediction in a variable and then write the return statement outside
     # of the if-else block, or you can have three return statements within the if-else block.
 
     # TODO: You will modify the below return statement or move it into your if-else block when you write it.
-    return NONE
+    
 
 
 '''The main function is the entry point of the program.
