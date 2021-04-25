@@ -48,7 +48,7 @@ def cleanFileContents(f):
     # TODO: Your call to the re.sub function of the regular expression module here.
     # As is, the value of clean_text does not change.
     clean_text = re.sub('\s+', ' ', clean_text)
-    print(clean_text)
+    
 
     # Do not forget to return the result!
     return clean_text
@@ -72,7 +72,7 @@ def countTokens(text):
     # TODO: Write a statement below calling split() on your text and storing the
     # result in a new variable
     x = text.split()
-    print(x)
+    
 
     # Now, we need to iterate over each word in the list of tokens
     # (write a for loop over the list that split() returned).
@@ -89,7 +89,7 @@ def countTokens(text):
         if not w in token_counts:
             token_counts[w] = 0
         token_counts[w] += 1
-    print(token_counts)
+    
     # Do not forget to return the result!
     return token_counts
 
